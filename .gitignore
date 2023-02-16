@@ -13,6 +13,16 @@ target/
 *.properties
 *.jar
 
+# Это добавил я
+*.base
+*.controls
+*.fxml
+*.graphics
+*.media
+*.swing
+*.web
+*.dll
+
 
 /out/
 /JavaRushPlugin.properties
