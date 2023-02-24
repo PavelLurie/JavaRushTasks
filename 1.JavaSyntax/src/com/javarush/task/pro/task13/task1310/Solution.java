@@ -28,8 +28,7 @@ public class Solution {
     }
 
     public static void printStudents() {
-        Set set = grades.keySet();
-        for (Object name:set) {
+        for (String name: grades.keySet()) {
             System.out.println(name);
         }
     }
