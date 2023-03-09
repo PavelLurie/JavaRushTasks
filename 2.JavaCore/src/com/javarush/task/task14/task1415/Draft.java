@@ -7,6 +7,7 @@ public class Draft {
     }
 
     public static class Animal{
+
         public static void all(){
             System.out.println("Что-то");
         }
