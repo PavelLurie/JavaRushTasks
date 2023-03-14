@@ -11,6 +11,7 @@ public class Solution {
         add(2d, 2);
        // add("1", 2d);
         add((byte) 1, 2d);
+
     }
 
     public static void add(int i, int j) {
@@ -27,4 +28,6 @@ public class Solution {
 
         System.out.println("Double addition");
     }
+
+
 }
