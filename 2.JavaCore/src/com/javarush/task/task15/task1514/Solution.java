@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class Solution {
     public static Map<Double, String> labels = new HashMap<Double, String>();
-
+    
     static {
         labels.put(3.3, "П");
         labels.put(3.4, "Пр");
