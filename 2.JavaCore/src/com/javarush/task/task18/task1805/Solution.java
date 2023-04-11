@@ -17,7 +17,7 @@ public class Solution {
         ArrayList<Integer> list = new ArrayList<>();
         while (inputStream.available() > 0) {
             int next_byte = inputStream.read();
-            list.add(Integer.valueOf(String.valueOf(next_byte)));
+            list.add(next_byte);
         }
         inputStream.close();
 
