@@ -12,31 +12,22 @@ import java.util.TreeMap;
 
 public class Solution {
     public static void main(String[] args) throws IOException {
-        int[] aSCII = new int[128];
-        try (FileReader reader = new FileReader(args[0])) {
-            while (reader.ready()) {
-                aSCII[reader.read()]++;
+        try (FileReader fr = new FileReader(args[0])) {
+            int content;
+            Map<Character, Integer> map = new TreeMap<>();
+            while ((content = fr.read()) != -1) {
+                if (!map.containsKey((char)content)){
+                    map.put((char) content, 1);
+                }else {
+                    map.put((char) content, map.get((char)content) + 1);
+                }
             }
-        }
-        for (int i = 0; i < aSCII.length; i++) {
-            if (aSCII[i] != 0) {
-                System.out.println((char) i + " " + aSCII[i]);
+
+            for (Map.Entry<Character, Integer> a : map.entrySet()){
+                System.out.println(a.getKey() + " " + a.getValue());
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
-
-//try(BufferedReader br = new BufferedReader(new FileReader(args[0]))){
-//        String line = br.readLine();
-//        Map<Character, Integer> map = new TreeMap<>();
-//        for (char aChar : line.toCharArray()) {
-//        if (!map.containsKey(aChar)) {
-//        map.put(aChar, 1);
-//        } else {
-//        map.put(aChar, map.get(aChar) + 1);
-//        }
-//        }
-//        for (Map.Entry<Character, Integer> a : map.entrySet()){
-//        System.out.println(a.getKey() + " " + a.getValue());
-//        }
-//        }
