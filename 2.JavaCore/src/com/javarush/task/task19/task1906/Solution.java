@@ -27,7 +27,6 @@ public class Solution {
         for (int i = 0; i < list.size(); i++) {
             if (i % 2 > 0){
                 wr.write(list.get(i));
-                //System.out.print(list.get(i));
             }
         }
 
