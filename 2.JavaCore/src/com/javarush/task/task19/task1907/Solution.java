@@ -13,35 +13,38 @@ import java.util.regex.Pattern;
 */
 
 public class Solution {
-    private static int counter = 0;
-
     public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String file = br.readLine();
+        br.close();
 
-        String fileName;
-
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-            fileName = br.readLine();
-        }
-
-        StringBuilder text = new StringBuilder();
-        try (FileReader reader = new FileReader(fileName)) {
-            char currentChar;
-            while (reader.ready()) {
-                currentChar = (char) reader.read();
-                text.append(currentChar);
-
+        FileReader fr = new FileReader(file);
+        String content = null;
+        int count = 0;
+        while (fr.ready()){
+            Scanner scanner = new Scanner(fr);
+            content = scanner.nextLine();
+            while (scanner.hasNextLine()) {
+                content += scanner.nextLine();
             }
         }
+        System.out.println(content);
+        fr.close();
 
-        String replacedString = text.toString().replaceAll("\\p{P}", " ").replaceAll("\\s", " ");
+//        for (String world : content.split("[\\p{P} ]")){
+//            if (world.equals("world")){
+//                count++;
+//            }
+//        }
+//        System.out.println(count);
 
-        for (String x : replacedString.split(" ")) {
-            if (x.equals("world")) {
-                counter++;
-            }
+
+        Pattern pattern = Pattern.compile("\\bworld\\b");
+        for (String world : content.split("[\\p{P}]")){
+            Matcher matcher = pattern.matcher(world);
+            if (matcher.find()) count++;
         }
-
-        System.out.println(counter);
+        System.out.println(count);
 
     }
 }
