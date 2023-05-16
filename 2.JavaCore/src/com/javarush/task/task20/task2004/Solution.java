@@ -12,7 +12,7 @@ public class Solution {
         //вы можете найти your_file_name.tmp в папке TMP или исправьте outputStream/inputStream в соответствии с путем к вашему реальному файлу
         try {
 
-            File yourFile = new File("D:\\t1.txt");
+            File yourFile = File.createTempFile("your_file_name", null);
             OutputStream outputStream = new FileOutputStream(yourFile);
             InputStream inputStream = new FileInputStream(yourFile);
 
@@ -23,7 +23,7 @@ public class Solution {
             outputStream.flush();
 
             ClassWithStatic loadedObject = new ClassWithStatic();
-            loadedObject.staticString = "something";
+            ClassWithStatic.staticString = "something";
             loadedObject.i = 6;
             loadedObject.j = 7;
 
@@ -64,9 +64,6 @@ public class Solution {
             this.i = Integer.parseInt(bufferedReader.readLine());
             this.j = Integer.parseInt(bufferedReader.readLine());
             bufferedReader.close();
-            System.out.println(i);
-            System.out.println(j);
-
         }
 
         @Override
@@ -89,3 +86,5 @@ public class Solution {
         }
     }
 }
+
+
