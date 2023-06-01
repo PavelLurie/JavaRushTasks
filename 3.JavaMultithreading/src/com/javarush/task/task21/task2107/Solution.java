@@ -50,18 +50,13 @@ public class Solution implements Cloneable{
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-
             User user = (User) o;
-
-            if (age != user.age) return false;
-            return name != null ? name.equals(user.name) : user.name == null;
+            return age == user.age && Objects.equals(name, user.name);
         }
 
         @Override
         public int hashCode() {
-            int result = age;
-            result = 31 * result + (name != null ? name.hashCode() : 0);
-            return result;
+            return Objects.hash(age, name);
         }
     }
 
